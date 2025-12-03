@@ -1,3 +1,4 @@
+import Link from 'next/link'
 import React from 'react'
 
 const Features = () => {
@@ -99,7 +100,7 @@ const Features = () => {
               searching.
             </p>
             <div className="mt-6 flex items-center text-blue-400 text-sm font-semibold">
-              <span>Explore bounties</span>
+              <Link href="/bounties" className="group flex items-center">Explore bounties</Link>
               <svg
                 className="w-4 h-4 ml-2 group-hover:translate-x-2 transition-transform"
                 fill="none"

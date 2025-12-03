@@ -2,8 +2,11 @@
 
 import React from 'react';
 import { signIn } from 'next-auth/react';
+import { useRouter } from 'next/navigation';
 
 const Hero = () => {
+  const router = useRouter();
+
   return (
     
     <div className="relative pt-32 pb-20 px-6">
