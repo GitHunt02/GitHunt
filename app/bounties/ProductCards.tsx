@@ -1,8 +1,8 @@
 'use client';
 
-import { Card, CardContent, CardFooter, CardHeader } from ''@/components/ui';
-import { Button } from ''@/components/ui';
-import { Badge } from '@/components/ui';
+import { Card, CardContent, CardFooter, CardHeader } from '/components/ui';
+import { Button } from '/components/ui';
+import { Badge } from '/components/ui';
 import { Package, TrendingUp, Zap } from 'lucide-react';
 
 interface Bounty {
