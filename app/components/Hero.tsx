@@ -41,7 +41,8 @@ const Hero = () => {
         </p>
 
         <div className="flex flex-col sm:flex-row gap-4 justify-center pt-8">
-          <button className="relative group">
+          <button className="relative group"
+            onClick={() => router.push('/bounties')}>
             <div className="absolute inset-0 bg-gradient-to-r from-purple-600 to-blue-600 rounded-xl blur-lg group-hover:blur-xl transition opacity-75" />
             <div className="relative bg-gradient-to-r from-purple-600 to-blue-600 text-white px-10 py-5 rounded-xl font-bold text-lg transition group-hover:scale-105">
               Explore Bounties
