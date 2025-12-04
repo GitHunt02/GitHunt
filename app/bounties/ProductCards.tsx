@@ -1,8 +1,8 @@
 'use client';
 
-import { Card, CardContent, CardFooter, CardHeader } from '/components/ui';
-import { Button } from '/components/ui';
-import { Badge } from '/components/ui';
+import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
+import { Button } from '../../components/ui/button';
+import { Badge } from '../../components/ui/badge';
 import { Package, TrendingUp, Zap } from 'lucide-react';
 
 interface Bounty {
@@ -108,10 +108,10 @@ export default function ProductCards() {
                   )}
                 </div>
                 <div>
-                  <h3 className="text-xl font-semibold text-white group-hover:text-pink-400 transition-colors">
+                  <CardTitle className="text-xl font-semibold text-white group-hover:text-pink-400 transition-colors">
                     {bounty.title}
-                  </h3>
-                  <p className="text-sm text-slate-500 mt-1">{bounty.platform} • {bounty.difficulty}</p>
+                  </CardTitle>
+                  <CardDescription className="text-sm text-slate-500 mt-1">{bounty.platform} • {bounty.difficulty}</CardDescription>
                 </div>
               </CardHeader>
 

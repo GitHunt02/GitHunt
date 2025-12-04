@@ -7,11 +7,11 @@ const nextConfig = {
           '**/node_modules/**',
           '**/.git/**',
           '**/.next/**',
-          'C:\\DumpStack.log.tmp',
-          'C:\\System Volume Information\\**',
-          'C:\\hiberfil.sys',
-          'C:\\pagefile.sys',
-          'C:\\swapfile.sys'
+          'C:/DumpStack.log.tmp',
+          'C:/System Volume Information/**',
+          'C:/hiberfil.sys',
+          'C:/pagefile.sys',
+          'C:/swapfile.sys'
         ]
       }
     }
