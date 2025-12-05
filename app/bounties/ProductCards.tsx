@@ -3,7 +3,8 @@
 import { Card, CardContent, CardFooter, CardHeader, CardTitle, CardDescription } from '@/components/ui/card';
 import { Button } from '../../components/ui/button';
 import { Badge } from '../../components/ui/badge';
-import { Package, TrendingUp, Zap } from 'lucide-react';
+import { Package, TrendingUp, Zap, Heart } from 'lucide-react';
+import { useState, useEffect } from 'react';
 
 interface Bounty {
   id: number;
@@ -69,6 +70,19 @@ const bounties: Bounty[] = [
 ];
 
 export default function ProductCards() {
+  const [wishlist, setWishlist] = useState<number[]>([]);
+
+  useEffect(() => {
+    const saved = localStorage.getItem('wishlist');
+    if (saved) setWishlist(JSON.parse(saved));
+  }, []);
+
+  const toggleWishlist = (id: number) => {
+    const newWishlist = wishlist.includes(id) ? wishlist.filter(i => i !== id) : [...wishlist, id];
+    setWishlist(newWishlist);
+    localStorage.setItem('wishlist', JSON.stringify(newWishlist));
+  };
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-slate-950 via-slate-900 to-slate-950 py-16 px-4">
       <div className="max-w-7xl mx-auto">
@@ -100,12 +114,20 @@ export default function ProductCards() {
                   <div className="p-3 rounded-lg bg-gradient-to-br from-pink-500/20 to-purple-500/20 border border-pink-500/30">
                     <Package className="w-6 h-6 text-pink-400" />
                   </div>
-                  {bounty.featured && (
-                    <Badge className="bg-gradient-to-r from-pink-500 to-purple-500 text-white border-0">
-                      <TrendingUp className="w-3 h-3 mr-1" />
-                      Featured
-                    </Badge>
-                  )}
+                  <div className="flex items-center gap-2">
+                    {bounty.featured && (
+                      <Badge className="bg-gradient-to-r from-pink-500 to-purple-500 text-white border-0">
+                        <TrendingUp className="w-3 h-3 mr-1" />
+                        Featured
+                      </Badge>
+                    )}
+                    <button
+                      onClick={() => toggleWishlist(bounty.id)}
+                      className="p-2 rounded-lg bg-slate-800/50 border border-slate-700 hover:border-pink-500/50 transition-all duration-300"
+                    >
+                      <Heart className={`w-4 h-4 ${wishlist.includes(bounty.id) ? 'fill-pink-500 text-pink-500' : 'text-slate-400'}`} />
+                    </button>
+                  </div>
                 </div>
                 <div>
                   <CardTitle className="text-xl font-semibold text-white group-hover:text-pink-400 transition-colors">
